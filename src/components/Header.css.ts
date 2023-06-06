@@ -9,9 +9,11 @@ export const header = style({
 });
 
 export const link = style({
-  textUnderlineOffset: '.2rem',
+  color: 'white',
+  borderBottom: 'none',
+  textDecoration: 'none',
   ':hover': {
-    textDecoration: 'underline',
     cursor: 'pointer',
+    textDecoration: 'underline',
   },
 });
