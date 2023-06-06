@@ -1,3 +1,5 @@
+import { Item } from '../types';
+
 const HACKER_NEWS_URL = 'https://hacker-news.firebaseio.com/v0/';
 
 export const getTopStories = async (
@@ -14,6 +16,6 @@ export const getTopStories = async (
 };
 
 export const getArticleInfo = async (id: number) => {
-  const response = await fetch(HACKER_NEWS_URL + id + '.json');
-  return await response.json();
+  const response = await fetch(HACKER_NEWS_URL + '/item/' + id + '.json');
+  return (await response.json()) as Item;
 };
