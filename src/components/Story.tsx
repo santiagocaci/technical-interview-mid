@@ -13,6 +13,7 @@ import {
 } from './Story.css';
 import HackerNewsLoader from './HackerNewsLoader';
 import { Item } from '../types';
+import { getRelativeTime } from '../utils';
 
 export default function Story(props: { id: number; index: number }) {
   const { index, id } = props;
@@ -34,13 +35,6 @@ export default function Story(props: { id: number; index: number }) {
     domain = 'not domain';
   }
 
-  const timeAgo = () => {
-    const date = new Date(time * 1000);
-    const hours = date.getHours();
-    return hours;
-  };
-
-  // Todo: Create relative time
   return (
     <article className={story}>
       <header className={storyHeader}>
@@ -69,7 +63,7 @@ export default function Story(props: { id: number; index: number }) {
           by {by}
         </Link>{' '}
         <Link href={`/article/${id}`} className={smallLink}>
-          {timeAgo()} hours ago
+          {getRelativeTime(time)}
         </Link>{' '}
         |
         <Link href={`/article/${id}`} className={smallLink}>

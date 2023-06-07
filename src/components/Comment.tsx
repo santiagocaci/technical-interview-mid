@@ -4,6 +4,7 @@ import { getArticleInfo } from '../services/hacker-news';
 import ListOfComments from './ListOfComments';
 import { hacknewsComment, hacknewsCommentText } from './Comment.css';
 import HackerNewsLoader from './HackerNewsLoader';
+import { getRelativeTime } from '../utils';
 
 export default function Comments(props: { id: number }) {
   const { id } = props;
@@ -14,7 +15,7 @@ export default function Comments(props: { id: number }) {
   if (isLoading) return <HackerNewsLoader />;
   if (!data) return <span>Error!</span>;
 
-  const { by, text, kids } = data;
+  const { by, text, kids, time } = data;
 
   return (
     <>
@@ -22,8 +23,8 @@ export default function Comments(props: { id: number }) {
         <summary>
           <small className={hacknewsComment}>
             <span>{by}</span>
-            <span>.</span>
-            <span>4 hours ago</span>
+            <span>. </span>
+            <span>{getRelativeTime(time)}</span>
           </small>
         </summary>
         <p className={hacknewsCommentText}>{text?.slice(0, 300)}...</p>
