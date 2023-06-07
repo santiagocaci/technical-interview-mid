@@ -8,4 +8,5 @@ export type Item = {
   title: string;
   type: string;
   url?: string;
+  text?: string;
 };
