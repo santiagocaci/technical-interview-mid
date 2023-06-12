@@ -12,7 +12,7 @@ function App() {
       <Header />
 
       <Suspense fallback=''>
-        <Route path='/' component={TopStories} />
+        <Route path='/technical-interview-mid' component={TopStories} />
         <Route path='/article/:id' component={Details} />
       </Suspense>
     </>
