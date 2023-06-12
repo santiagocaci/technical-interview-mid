@@ -4,6 +4,7 @@ import useSWRInfinite from 'swr/infinite';
 import { getTopStories } from '../services/hacker-news';
 
 import Story from '../components/Story';
+import { body, buttonMore } from './TopStories.css';
 
 export default function TopStories() {
   // const { data, error } = useSWR('top-stories', () => getTopStories(1, 10));
@@ -18,11 +19,14 @@ export default function TopStories() {
 
   const stories = data?.flat() ?? [];
 
-  console.log(stories);
-
   return (
-    <>
-      <ul style={{ listStyle: 'none' }}>
+    <div className={body}>
+      <ul
+        style={{
+          listStyle: 'none',
+          padding: 0,
+        }}
+      >
         {error && <li>Something went wrong</li>}
         {stories?.map((storyId, index) => (
           <li key={storyId}>
@@ -30,7 +34,9 @@ export default function TopStories() {
           </li>
         ))}
       </ul>
-      <button onClick={() => setSize(size + 1)}>Load More</button>
-    </>
+      <button className={buttonMore} onClick={() => setSize(size + 1)}>
+        Load More
+      </button>
+    </div>
   );
 }

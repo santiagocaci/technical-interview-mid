@@ -15,12 +15,17 @@ export const storyTitle = style({
 });
 
 export const storyFooter = style({
-  fontSize: '0.9rem',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
+  fontSize: '1rem',
   lineHeight: '24px',
   marginBottom: '0.5rem',
+  '@media': {
+    'screen and (min-width: 768px)': {
+      fontSize: '0.9rem',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+    },
+  },
 });
 
 export const storyDomain = style({

@@ -58,14 +58,14 @@ export default function Story(props: { id: number; index: number }) {
       </header>
 
       <footer className={storyFooter}>
-        <span>{score} points</span>
+        <span>{score} points</span>{' '}
         <Link href={`/article/${id}`} className={smallLink}>
           by {by}
         </Link>{' '}
         <Link href={`/article/${id}`} className={smallLink}>
           {getRelativeTime(time)}
         </Link>{' '}
-        |
+        |{' '}
         <Link href={`/article/${id}`} className={smallLink}>
           {kids?.length || 0} comments
         </Link>
